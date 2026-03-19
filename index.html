@@ -1,651 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta
-      name="description"
-      content="Start your development with Meyawo landing page."
-    />
-    <meta name="author" content="Devcrud" />
-    <title>My Portfolio</title>
-    <!-- font icons -->
-    <link
-      rel="stylesheet"
-      href="assets/vendors/themify-icons/css/themify-icons.css"
-    />
-    <!-- Bootstrap + Meyawo main styles -->
-    <link rel="stylesheet" href="assets/css/meyawo.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anubhav Jana · industrialist & investor</title>
+  <!-- Font Awesome 6 (free) for crisp social icons & profile accent -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: striking combination (Space Grotesk + Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <!-- Page Navbar -->
-    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-      <div class="container">
-        <a class="logo" href="#">Anubhav Jana</a>
-        <ul class="nav">
-          <li class="item">
-            <a class="link" href="#home">Home</a>
-          </li>
-          <li class="item">
-            <a class="link" href="#about">About</a>
-          </li>
-          <li class="item">
-            <a class="link" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="item">
-            <a class="link" href="#testmonial">Testmonial</a>
-          </li>
-          <li class="item">
-            <a class="link" href="#blog">Blog</a>
-          </li>
-          <li class="item">
-            <a class="link" href="#contact">Contact</a>
-          </li>
-          <li class="item ml-md-3">
-            <a href="components.html" class="btn btn-primary">Components</a>
-          </li>
-        </ul>
-        <a
-          href="javascript:void(0)"
-          id="nav-toggle"
-          class="hamburger hamburger--elastic"
-        >
-          <div class="hamburger-box">
-            <div class="hamburger-inner"></div>
-          </div>
-        </a>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f2fd;
+      color: #1b1b2b;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .logo, .nav a, .section-title, .btn, .social-highlight {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    /* jaw‑dropping gradient background & smooth edges */
+    .gradient-bg {
+      background: radial-gradient(circle at 20% 30%, #2a235a, #0d0b1a 90%);
+    }
+
+    /* navigation — ultra minimal, sleek */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 8, 22, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(130deg, #c3b9ff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #f0eaff;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #9f8cff;
+      color: #ffffff;
+    }
+
+    .nav-highlight {
+      background: #ffffff14;
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      border: 1px solid rgba(255, 215, 245, 0.3);
+      backdrop-filter: blur(4px);
+      margin-left: 1rem;
+      font-weight: 600;
+      color: #fff !important;
+      transition: 0.25s;
+    }
+    .nav-highlight:hover {
+      background: #ffffff28;
+      border-color: #bbaaff;
+    }
+
+    /* mobile toggle (hidden on desktop) */
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ===== HERO SECTION — profile left, social highlight ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 7%;
+      background: radial-gradient(ellipse at 70% 30%, #281f4e, #0a0715);
+      color: white;
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+      padding-top: 10pc;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 100%;
+      right: -10%;
+      top: 0;
+      background: radial-gradient(circle, #a088ff30 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      align-items: center;
+      gap: 3rem;
+      width: 100%;
+      z-index: 5;
+    }
+
+    /* PROFILE PHOTO PORTION — large & glowing */
+    .profile-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .photo-frame {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #9c8aff, #7f5af0);
+      padding: 8px;
+      box-shadow: 0 30px 50px -10px #2600ff70, 0 0 0 4px #ffffff1a inset;
+      transition: transform 0.3s ease;
+      margin-bottom: 1.8rem;
+    }
+    .photo-frame:hover {
+      transform: scale(1.02);
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #0b081a;
+      background: #2d2655;
+      display: block;
+    }
+    /* fallback text if image missing */
+    .photo-frame .placeholder-icon {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #1a1537;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      color: #bbaaff;
+    }
+
+    .profile-name {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+      background: linear-gradient(to right, #f2ecff, #d3c7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .profile-badge {
+      background: #ffffff12;
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border: 1px solid #a28eff;
+      color: #cec3ff;
+      display: inline-block;
+    }
+
+    /* HIGHLIGHTED SOCIAL SECTION (facebook, instagram, linkedin, snapchat, whatsapp) */
+    .social-highlight-section {
+      background: rgba(20, 15, 45, 0.7);
+      backdrop-filter: blur(16px);
+      border-radius: 100px;
+      padding: 0.9rem 2.2rem;
+      display: inline-flex;
+      gap: 2.5rem;
+      border: 1px solid rgba(190, 160, 255, 0.5);
+      box-shadow: 0 20px 40px -8px #00000080, 0 0 0 2px #5925ff1a;
+      margin: 2rem 0 0;
+    }
+    .social-highlight-section a {
+      color: #f0eaff;
+      font-size: 2.2rem;
+      transition: 0.2s;
+      line-height: 1;
+      position: relative;
+    }
+    .social-highlight-section a:hover {
+      color: #ffffff;
+      transform: scale(1.2) translateY(-4px);
+      text-shadow: 0 0 20px #bb9eff;
+    }
+    /* platform hint (tiny labels) */
+    .social-highlight-section span {
+      display: none; /* keep clean, just icons */
+    }
+
+    .hero-right h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero-right h1 span {
+      background: linear-gradient(145deg, #cbb9ff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: 1.3rem;
+      color: #cbc2f0;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+    .cta-btn {
+      background: #ffffff;
+      color: #19113b;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 20px 35px -5px #0000004d, 0 0 0 2px #b297ff inset;
+      transition: 0.25s;
+      margin-right: 1.5rem;
+    }
+    .cta-btn:hover {
+      background: #edeaff;
+      transform: scale(1.02);
+      box-shadow: 0 25px 40px -5px #3d21b3;
+    }
+    .outline-btn {
+      background: transparent;
+      border: 2px solid #bbaaff;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .outline-btn:hover {
+      background: #bbaaff30;
+      border-color: #fff;
+    }
+
+    /* about, portfolio, testimonial, contact — minimal luxury */
+    .section {
+      padding: 6rem 7%;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #282162, #000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .section-subhead {
+      color: #4b4278;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 3rem;
+      border-left: 5px solid #7d68e8;
+      padding-left: 1.5rem;
+    }
+
+    .about-wrap {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-text p {
+      font-size: 1.2rem;
+      color: #26213e;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-grid, .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem 1.8rem;
+      border-radius: 40px;
+      border: 1px solid #ffffff90;
+      box-shadow: 0 20px 40px -12px #ccc6ff;
+      transition: all 0.25s;
+    }
+    .service-card:hover {
+      background: white;
+      box-shadow: 0 35px 60px -12px #b19dff;
+      transform: translateY(-10px);
+    }
+    .service-card i {
+      font-size: 3rem;
+      color: #5c48c4;
+      margin-bottom: 1.2rem;
+    }
+
+    .portfolio-card {
+      border-radius: 30px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 10px 30px -5px #c6b6ff;
+      transition: 0.2s;
+    }
+    .portfolio-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-card div {
+      padding: 1.5rem;
+    }
+
+    /* TESTIMONIALS */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 40px;
+      padding: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: 0 30px 50px -25px #9a87d4;
+    }
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* contact + social bar */
+    .contact-area {
+      background: #0b0821;
+      color: white;
+      border-radius: 60px 60px 30px 30px;
+      padding: 4rem 5%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .big-social-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .big-social-links a {
+      color: white;
+      background: #2c2455;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      transition: 0.2s;
+      border: 2px solid transparent;
+    }
+    .big-social-links a:hover {
+      background: #5541b9;
+      border-color: #e5d9ff;
+      transform: scale(1.1);
+    }
+
+    footer {
+      padding: 2rem 7%;
+      text-align: center;
+      color: #4f4780;
+      border-top: 1px solid #dad2ff;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .profile-panel {
+        order: 1;
+      }
+      .hero-right {
+        order: 2;
+      }
+      .social-highlight-section {
+        padding: 0.8rem 1.5rem;
+        gap: 1.8rem;
+      }
+      .navbar {
+        padding: 1rem 5%;
+      }
+      .nav-links {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-area {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* simple mobile menu fallback */
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: #100e21f5;
+      backdrop-filter: blur(20px);
+      padding: 2rem;
+      gap: 1.5rem;
+      border-bottom: 1px solid gray;
+    }
+  </style>
+</head>
+<body>
+
+<!-- fixed navigation -->
+<nav class="navbar">
+  <div class="logo">ANUBHAV JANA</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#testimonial">Testimonials</a>
+    <a href="#contact">Contact</a>
+    <a href="#" class="nav-highlight"><i class="fas fa-arrow-right" style="margin-right: 6px;"></i>Let's talk</a>
+  </div>
+  <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+    <i class="fas fa-bars"></i>
+  </div>
+</nav>
+
+<!-- HERO with PROFILE PHOTO + HIGHLIGHTED SOCIAL (fb, insta, linkedin, snap, whatsapp) -->
+<section id="home" class="hero">
+  <div class="hero-grid">
+    <!-- left side: profile photo portion + mega social row -->
+    <div class="profile-panel">
+      <div class="photo-frame">
+        <!-- profile image (replace src with your actual image) -->
+        <img src="assets/imgs/bbb.jpeg" alt="Anubhav Jana">
+        <!-- <div class="placeholder-icon"><i class="fas fa-user-astronaut"></i></div>   fallback if needed -->
       </div>
-    </nav>
-    <!-- End of Page Navbar -->
+      <div class="profile-name">Anubhav Jana</div>
+      <div class="profile-badge">Industrialist · Investor · CEO</div>
 
-    <!-- page header -->
-    <header id="home" class="header">
-      <div class="overlay"></div>
-      <div class="header-content container">
-        <h1 class="header-title">
-          <span class="up">HI!</span>
-          <span class="down">I am Anubhav Jana</span>
-        </h1>
-        <p class="header-subtitle">Industralist & Investor</p>
-
-        <button class="btn btn-primary">Visit My Works</button>
+      <!-- ★ HIGHLIGHTED SOCIAL BANNER (exactly fb, insta, linkedin, snapchat, whatsapp) -->
+      <div class="social-highlight-section">
+        <a href="https://www.facebook.com/share/182o7ubjaw/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/anubhavjanainthehousebaby?igsh=cXVhcWZlY2VjeGVn" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/anubhav-jana-83985a231?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.snapchat.com/add/anubhav_jana21?share_id=ybSmST3iVng&locale=en-GB" target="_blank" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+        <!-- <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> -->
       </div>
-    </header>
-    <!-- end of page header -->
-
-    <!-- about section -->
-    <section class="section pt-0" id="about">
-      <!-- container -->
-      <div class="container text-center">
-        <!-- about wrapper -->
-        <div class="about">
-          <div class="about-img-holder">
-            <img
-              src="assets/imgs/man.png"
-              class="about-img"
-              alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-            />
-          </div>
-          <div class="about-caption">
-            <p class="section-subtitle">Who Am I ?</p>
-            <h2 class="section-title mb-3">About Me</h2>
-            <p>
-              I am a results-driven Marketing Expert and CEO with extensive
-              experience in building and scaling industries through strategic
-              leadership and data-driven decision-making. With a strong
-              foundation in brand development, market expansion, and business
-              growth, I have successfully led organizations across competitive
-              markets.
-              <br />
-              As an industrialist and active investor-trader, I specialize in
-              identifying high-growth opportunities, managing diversified
-              portfolios, and optimizing operational efficiency. My expertise
-              lies in aligning marketing innovation with business strategy to
-              drive sustainable growth, maximize returns, and create long-term
-              value for stakeholders.
-            </p>
-
-            <button class="btn-rounded btn btn-outline-primary mt-4">
-              Download CV
-            </button>
-          </div>
-        </div>
-        <!-- end of about wrapper -->
-      </div>
-      <!-- end of container -->
-    </section>
-    <!-- end of about section -->
-
-    <!-- service section -->
-    <section class="section" id="service">
-      <div class="container text-center">
-        <p class="section-subtitle">What I Do</p>
-        <h6 class="section-title mb-6">Services</h6>
-
-        <div class="row">
-          <!-- Marketing Strategy -->
-          <div class="col-md-6 col-lg-3">
-            <div class="service-card">
-              <div class="body">
-                <img
-                  src="assets/imgs/pencil-case.svg"
-                  alt="Marketing Strategy"
-                  class="icon"
-                />
-                <h6 class="title">Marketing Strategy</h6>
-                <p class="subtitle">
-                  Developing data-driven marketing strategies, brand
-                  positioning, and go-to-market plans that drive growth and
-                  customer engagement.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Business Leadership -->
-          <div class="col-md-6 col-lg-3">
-            <div class="service-card">
-              <div class="body">
-                <img
-                  src="assets/imgs/responsive.svg"
-                  alt="Business Leadership"
-                  class="icon"
-                />
-                <h6 class="title">Business Leadership</h6>
-                <p class="subtitle">
-                  Providing executive leadership, business planning, and
-                  organizational scaling to build sustainable and profitable
-                  enterprises.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Industrial Operations -->
-          <div class="col-md-6 col-lg-3">
-            <div class="service-card">
-              <div class="body">
-                <img
-                  src="assets/imgs/toolbox.svg"
-                  alt="Industrial Operations"
-                  class="icon"
-                />
-                <h6 class="title">Industrial Operations</h6>
-                <p class="subtitle">
-                  Optimizing industrial processes, supply chains, and
-                  operational efficiency to reduce costs and improve
-                  productivity.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Investment & Trading -->
-          <div class="col-md-6 col-lg-3">
-            <div class="service-card">
-              <div class="body">
-                <img
-                  src="assets/imgs/analytics.svg"
-                  alt="Investment & Trading"
-                  class="icon"
-                />
-                <h6 class="title">Investment & Trading</h6>
-                <p class="subtitle">
-                  Strategic investing and trading across markets with a focus on
-                  risk management, portfolio growth, and long-term value
-                  creation.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end of service section -->
-
-    <!-- portfolio section -->
-    <section class="section" id="portfolio">
-      <div class="container text-center">
-        <p class="section-subtitle">What I’ve Accomplished</p>
-        <h6 class="section-title mb-6">Portfolio</h6>
-
-        <div class="row">
-          <!-- Marketing & Brand Growth -->
-          <div class="col-md-4">
-            <a href="#" class="portfolio-card">
-              <img
-                src="assets/imgs/folio-1.jpg"
-                class="portfolio-card-img"
-                alt="Marketing & Brand Strategy Project"
-              />
-              <span class="portfolio-card-overlay">
-                <span class="portfolio-card-caption">
-                  <h4>Brand & Marketing Growth</h4>
-                  <p class="font-weight-normal">Category: Marketing Strategy</p>
-                </span>
-              </span>
-            </a>
-          </div>
-
-          <!-- Business Expansion -->
-          <div class="col-md-4">
-            <a href="#" class="portfolio-card">
-              <img
-                src="assets/imgs/folio-2.jpg"
-                class="portfolio-card-img"
-                alt="Business Expansion Project"
-              />
-              <span class="portfolio-card-overlay">
-                <span class="portfolio-card-caption">
-                  <h4>Business Expansion</h4>
-                  <p class="font-weight-normal">
-                    Category: Leadership & Growth
-                  </p>
-                </span>
-              </span>
-            </a>
-          </div>
-
-          <!-- Investment & Industrial Projects -->
-          <div class="col-md-4">
-            <a href="#" class="portfolio-card">
-              <img
-                src="assets/imgs/folio-3.jpg"
-                class="portfolio-card-img"
-                alt="Investment & Industrial Project"
-              />
-              <span class="portfolio-card-overlay">
-                <span class="portfolio-card-caption">
-                  <h4>Industrial & Investment Projects</h4>
-                  <p class="font-weight-normal">
-                    Category: Investments & Trading
-                  </p>
-                </span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end of portfolio section -->
-
-    <!-- pricing section -->
-    <section class="section" id="pricing">
-      <div class="container text-center">
-        <p class="section-subtitle">How I Work</p>
-        <h6 class="section-title mb-6">Engagement & Pricing</h6>
-
-        <div class="pricing-wrapper">
-          <!-- Strategy Consultation -->
-          <div class="pricing-card">
-            <div class="pricing-card-header">
-              <img
-                class="pricing-card-icon"
-                src="assets/imgs/scooter.svg"
-                alt="Strategy Consultation"
-              />
-            </div>
-            <div class="pricing-card-body">
-              <h6 class="pricing-card-title">Strategy Consultation</h6>
-              <div class="pricing-card-list">
-                <p>Business & marketing diagnosis</p>
-                <p>Market and competitor analysis</p>
-                <p>High-level growth direction</p>
-                <p>30–60 minute expert consultation</p>
-                <p><i class="ti-close"></i></p>
-                <p><i class="ti-close"></i></p>
-              </div>
-            </div>
-            <div class="pricing-card-footer">
-              <span>₹</span>
-              <span>0 / Session</span>
-            </div>
-            <a href="#" class="btn btn-primary mt-3 pricing-card-btn"
-              >Book Session</a
-            >
-          </div>
-
-          <!-- Advisory Plan -->
-          <div class="pricing-card">
-            <div class="pricing-card-header">
-              <img
-                class="pricing-card-icon"
-                src="assets/imgs/shipped.svg"
-                alt="Business Advisory"
-              />
-            </div>
-            <div class="pricing-card-body">
-              <h6 class="pricing-card-title">Business Advisory</h6>
-              <div class="pricing-card-list">
-                <p>Marketing & brand strategy</p>
-                <p>Revenue & growth planning</p>
-                <p>Monthly performance review</p>
-                <p>Operations & leadership guidance</p>
-                <p>Investor & scalability insights</p>
-                <p><i class="ti-close"></i></p>
-              </div>
-            </div>
-            <div class="pricing-card-footer">
-              <span>₹</span>
-              <span>75,000 / Month</span>
-            </div>
-            <a href="#" class="btn btn-primary mt-3 pricing-card-btn"
-              >Get Started</a
-            >
-          </div>
-
-          <!-- Executive Partnership -->
-          <div class="pricing-card">
-            <div class="pricing-card-header">
-              <img
-                class="pricing-card-icon"
-                src="assets/imgs/startup.svg"
-                alt="Executive Partnership"
-              />
-            </div>
-            <div class="pricing-card-body">
-              <h6 class="pricing-card-title">Executive Partnership</h6>
-              <div class="pricing-card-list">
-                <p>CEO-level strategic involvement</p>
-                <p>Marketing & revenue scaling</p>
-                <p>Industrial & operational leadership</p>
-                <p>Investment & capital advisory</p>
-                <p>Long-term growth execution</p>
-                <p>Custom engagement model</p>
-              </div>
-            </div>
-            <div class="pricing-card-footer">
-              <span>₹</span>
-              <span>Custom Pricing</span>
-            </div>
-            <a href="#" class="btn btn-primary mt-3 pricing-card-btn"
-              >Contact Me</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- end of pricing section -->
-
-    <!-- section -->
-    <section class="section-sm bg-primary">
-      <!-- container -->
-      <div class="container text-center text-sm-left">
-        <!-- row -->
-        <div class="row align-items-center">
-          <div class="col-sm offset-md-1 mb-4 mb-md-0">
-            <h6 class="title text-light">Want to work with me?</h6>
-            <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
-          </div>
-          <div class="col-sm offset-sm-2 offset-md-3">
-            <button class="btn btn-lg my-font btn-light rounded">
-              Hire Me
-            </button>
-          </div>
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of container -->
-    </section>
-    <!-- end of section -->
-
-    <!-- testimonial section -->
-    <section class="section" id="testmonial">
-      <div class="container text-center">
-        <p class="section-subtitle">What Clients Say About Me</p>
-        <h6 class="section-title mb-6">Testimonials</h6>
-
-        <div class="row">
-          <!-- Testimonial 1 -->
-          <div class="col-md-6">
-            <div class="testimonial-card">
-              <div class="testimonial-card-img-holder">
-                <img
-                  src="assets/imgs/avatar2.jpg"
-                  class="testimonial-card-img"
-                  alt="Client Testimonial"
-                />
-              </div>
-              <div class="testimonial-card-body">
-                <p class="testimonial-card-subtitle">
-                  Working with him was a transformative experience for our
-                  business. His strategic insight, marketing expertise, and
-                  leadership approach helped us scale operations and launch a
-                  sustainable growth model with measurable results.
-                </p>
-                <h6 class="testimonial-card-title">Rahul Mehta</h6>
-                <small>Founder & CEO, Growth Ventures</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="col-md-6">
-            <div class="testimonial-card">
-              <div class="testimonial-card-img-holder">
-                <img
-                  src="assets/imgs/avatar3.jpg"
-                  class="testimonial-card-img"
-                  alt="Client Testimonial"
-                />
-              </div>
-              <div class="testimonial-card-body">
-                <p class="testimonial-card-subtitle">
-                  His ability to combine business strategy, industrial
-                  knowledge, and investment thinking is exceptional. The
-                  guidance provided at a leadership level helped us optimize
-                  performance and prepare confidently for future expansion.
-                </p>
-                <h6 class="testimonial-card-title">Ananya Sharma</h6>
-                <small>Director, Industrial Solutions Pvt. Ltd.</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end of testimonial section -->
-
-    <!-- blog section -->
-    <section class="section" id="blog">
-      <div class="container text-center">
-        <p class="section-subtitle">Insights & Perspectives</p>
-        <h6 class="section-title mb-6">Industry Blog</h6>
-
-        <!-- Blog Post 1 -->
-        <div class="blog-card">
-          <div class="blog-card-header">
-            <img
-              src="assets/imgs/img-1.jpg"
-              class="blog-card-img"
-              alt="Industrial Growth Strategy"
-            />
-          </div>
-          <div class="blog-card-body">
-            <h5 class="blog-card-title">
-              Building Scalable Industries in a Competitive Market
-            </h5>
-
-            <p class="blog-card-caption">
-              <a href="#">By: CEO Desk</a>
-              <a href="#"><i class="ti-heart text-danger"></i> 1.2K</a>
-              <a href="#"><i class="ti-comment"></i> 320</a>
-            </p>
-
-            <p>
-              Scaling an industry requires more than capital—it demands
-              strategic leadership, operational discipline, and market
-              intelligence. This article explores how industrial businesses can
-              achieve sustainable growth while maintaining efficiency and
-              profitability.
-            </p>
-
-            <p>
-              <b>
-                Learn how strong foundations, process optimization, and
-                long-term vision drive industrial success.
-              </b>
-            </p>
-
-            <p>
-              From supply chain resilience to leadership decision-making,
-              discover the key factors that separate high-performing industries
-              from the rest in today’s evolving economic landscape.
-            </p>
-
-            <a href="#" class="blog-card-link"
-              >Read more <i class="ti-angle-double-right"></i
-            ></a>
-          </div>
-        </div>
-
-        <!-- Blog Post 2 -->
-        <div class="blog-card">
-          <div class="blog-card-header">
-            <img
-              src="assets/imgs/img-2.jpg"
-              class="blog-card-img"
-              alt="Investment & Business Strategy"
-            />
-          </div>
-          <div class="blog-card-body">
-            <h5 class="blog-card-title">
-              Strategic Investments: Balancing Risk, Growth, and Long-Term Value
-            </h5>
-
-            <p class="blog-card-caption">
-              <a href="#">By: Industry Insights</a>
-              <a href="#"><i class="ti-heart text-danger"></i> 980</a>
-              <a href="#"><i class="ti-comment"></i> 210</a>
-            </p>
-
-            <p>
-              Successful investing in industrial and business ventures requires
-              a deep understanding of market trends, risk management, and
-              operational fundamentals. This post outlines a practical approach
-              to evaluating investment opportunities.
-            </p>
-
-            <p>
-              Learn how experienced industrialists assess scalability,
-              leadership strength, and financial health before committing
-              capital.
-            </p>
-
-            <p>
-              Whether you are an investor, entrepreneur, or business leader,
-              these insights will help you make informed decisions that create
-              long-term value.
-            </p>
-
-            <a href="#" class="blog-card-link"
-              >Read more <i class="ti-angle-double-right"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end of blog section -->
-
-    <!-- contact section -->
-    <section class="section" id="contact">
-      <div class="container text-center">
-        <p class="section-subtitle">Let’s Connect</p>
-        <h6 class="section-title mb-5">Get in Touch</h6>
-
-        <!-- Contact Form -->
-        <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
-          <div class="form-row">
-            <div class="form-group col-sm-6">
-              <input
-                type="text"
-                size="50"
-                class="form-control"
-                placeholder="Your Full Name"
-                required
-              />
-            </div>
-
-            <div class="form-group col-sm-6">
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Business Email Address"
-                required
-              />
-            </div>
-
-            <div class="form-group col-sm-12">
-              <textarea
-                name="comment"
-                id="comment"
-                rows="6"
-                class="form-control"
-                placeholder="Briefly describe your business, investment, or collaboration inquiry"
-              ></textarea>
-            </div>
-
-            <div class="form-group col-sm-12 mt-3">
-              <input
-                type="submit"
-                value="Request a Discussion"
-                class="btn btn-outline-primary rounded"
-              />
-            </div>
-          </div>
-        </form>
-        <!-- End Contact Form -->
-      </div>
-    </section>
-
-    <!-- end of contact section -->
-
-    <!-- footer -->
-    <div class="container">
-      <footer class="footer">
-        <p class="mb-0">
-          Copyright
-          <script>
-            document.write(new Date().getFullYear());
-          </script>
-          &copy; <a href="http://www.devcrud.com">DevCRUD</a> Distribution
-          <a href="https://themewagon.com">ThemeWagon</a>
-        </p>
-        <div class="social-links text-right m-auto ml-sm-auto">
-          <a href="javascript:void(0)" class="link"
-            ><i class="ti-facebook"></i
-          ></a>
-          <a href="javascript:void(0)" class="link"
-            ><i class="ti-twitter-alt"></i
-          ></a>
-          <a href="javascript:void(0)" class="link"
-            ><i class="ti-google"></i
-          ></a>
-          <a href="javascript:void(0)" class="link"
-            ><i class="ti-pinterest-alt"></i
-          ></a>
-          <a href="javascript:void(0)" class="link"
-            ><i class="ti-instagram"></i
-          ></a>
-          <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
-        </div>
-      </footer>
     </div>
-    <!-- end of page footer -->
 
-    <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <!-- right side: value prop -->
+    <div class="hero-right">
+      <h1>Building <span>industries,</span> scaling visions.</h1>
+      <p class="hero-desc">Marketing strategist & investor · transforming ambitious ideas into market-dominating enterprises.</p>
+      <div>
+        <button class="cta-btn" onclick="window.location='#contact'">Work with me</button>
+        <button class="outline-btn" onclick="window.location='#portfolio'">Explore portfolio</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+<!-- ABOUT SECTION (clean) -->
+<section id="about" class="section">
+  <p class="section-subhead">WHO I AM</p>
+  <div class="about-wrap">
+    <div style="flex: 1;">
+      <h2 class="section-title">Strategist.<br> Investor. Builder.</h2>
+    </div>
+    <div style="flex: 1.5;" class="about-text">
+      <p>I’m Anubhav Jana — CEO of multiple industrial ventures, active investor-trader, and marketing architect. Over the last decade, I've built, scaled, and turned around businesses across manufacturing, logistics, and digital assets.</p>
+      <p>Today I partner with ambitious founders and enterprises to unlock growth through sharp strategy, operational depth, and capital intelligence. My approach fuses industrial rigor with modern marketing velocity.</p>
+      <p><i class="fas fa-check-circle" style="color:#5c48c4;"></i> 15+ industries impacted · $200M+ portfolio value</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Meyawo js -->
-    <script src="assets/js/meyawo.js"></script>
-  </body>
+<!-- SERVICES (from original, upgraded) -->
+<section class="section" style="background:#f1edfe;">
+  <p class="section-subhead">WHAT I EXCEL AT</p>
+  <h2 class="section-title">Services & expertise</h2>
+  <div class="service-grid">
+    <div class="service-card"><i class="fas fa-chart-line"></i><h3>Marketing strategy</h3><p>Data-led brand scaling & GTM</p></div>
+    <div class="service-card"><i class="fas fa-building"></i><h3>Business leadership</h3><p>CEO advisory, org architecture</p></div>
+    <div class="service-card"><i class="fas fa-cogs"></i><h3>Industrial operations</h3><p>Process & supply chain optimization</p></div>
+    <div class="service-card"><i class="fas fa-coins"></i><h3>Investment & trading</h3><p>Capital deployment, risk & return</p></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section id="portfolio" class="section">
+  <p class="section-subhead">RECENT DEALS & PROJECTS</p>
+  <h2 class="section-title">Portfolio highlights</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-card"><img src="assets/imgs/folio-1.jpg" alt="project"><div><h4>D2C brand roll-up</h4><p>Marketing transformation · 3x revenue</p></div></div>
+    <div class="portfolio-card"><img src="assets/imgs/folio-2.jpg" alt="project"><div><h4>Steel unit turnaround</h4><p>Operational overhaul · 40% margin increase</p></div></div>
+    <div class="portfolio-card"><img src="assets/imgs/folio-3.jpg" alt="project"><div><h4>Infra fund II</h4><p>$85M AUM · energy & logistics</p></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (avatar placeholders) -->
+<section id="testimonial" class="section" style="background: #f9f7ff;">
+  <p class="section-subhead">TRUSTED BY LEADERS</p>
+  <h2 class="section-title">Client stories</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial-card"><img src="assets/imgs/avatar2.jpg" alt="client"><div><p>“Anubhav's industrial insight is unmatched. He restructured our entire supply chain and positioned us for acquisition.”</p><h4>— Rahul Mehta, CEO</h4></div></div>
+    <div class="testimonial-card"><img src="assets/imgs/avatar3.jpg" alt="client"><div><p>“His investment instinct and leadership helped us scale at a pace we didn't think possible. A true partner.”</p><h4>— Ananya Sharma, Director</h4></div></div>
+  </div>
+</section>
+
+<!-- tiny script for mobile menu toggle -->
+<script>
+  document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('active');
+  });
+</script>
+</body>
 </html>
